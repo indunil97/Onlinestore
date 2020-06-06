@@ -1,5 +1,5 @@
-
 import 'package:flutter/material.dart';
+import './pages/product_detail.dart';
 
 class items extends StatefulWidget {
   @override
@@ -9,28 +9,28 @@ class items extends StatefulWidget {
 class _itemsState extends State<items> {
   var products = [
     {
-      "name": "Item1",
+      "name": "Red hat",
       "image": "assets/1.jpeg",
-      "old_Price": "50",
-      "price": "40"
+      "old_Price": "\$50.99",
+      "price": "\$40.99"
     },
     {
-      "name": "Item2",
+      "name": "Shirt ",
       "image": "assets/1.jpeg",
-      "old_Price": "50",
-      "price": "40"
-    },
-    {
-      "name": "Item3",
-      "image": "assets/1.jpeg",
-      "old_Price": "50",
-      "price": "40"
+      "old_Price": "\$50.99",
+      "price": "\$40.99"
     },
     {
       "name": "Item3",
       "image": "assets/1.jpeg",
-      "old_Price": "50",
-      "price": "40"
+      "old_Price": "\$50.99",
+      "price": "\$40.99"
+    },
+    {
+      "name": "Item3",
+      "image": "assets/1.jpeg",
+      "old_Price": "\$40.99",
+      "price": "\$40.99"
     }
   ];
   @override
@@ -64,16 +64,21 @@ class SingleProduct extends StatelessWidget {
   Widget build(BuildContext context) {
     return Card(
         child: Hero(
-            tag: productName,
+            tag: Text("hero1"), //can coused a error
             child: Material(
               child: InkWell(
-                onTap: () {},
+                onTap: () {Navigator.push(context, MaterialPageRoute(builder: (context){return ProductDetails(
+                  ProductDetails_Name: productName,
+                  ProductDetails_Image: productImage,
+                  ProductDetails_Old: productOld,
+                  ProductDetails_Price: productPrice,
+                );}));},
                 child: GridTile(
                   footer: Container(
                       color: Colors.white70,
                       child: ListTile(
                         leading: Container(
-                            padding: EdgeInsets.fromLTRB(1, 10, 80, 10),
+                            
                             child: Text(
                               productName,
                               style: TextStyle(
