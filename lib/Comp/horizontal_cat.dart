@@ -1,5 +1,6 @@
 
 import 'package:flutter/material.dart';
+import './pages/product_detail.dart';
 
 class HorizontalList extends StatelessWidget {
   @override
@@ -54,7 +55,7 @@ class GetListitems extends StatelessWidget {
       
       padding:EdgeInsets.all(2.0),
       child: InkWell(
-        onTap:(){},
+        onTap: () {},
         child:Container(
           width: 100.0,
             child: ListTile(
