@@ -145,7 +145,7 @@ class _FirstPageState extends State<FirstPage> {
             style: TextStyle(fontSize: 20),),
           ),
 
-          Container(
+          Container(                         //gridview
             height: 320.0,
             child: items(),//gridview
           ),
