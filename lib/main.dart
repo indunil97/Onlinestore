@@ -1,17 +1,14 @@
-
 import 'package:flutter/material.dart';
 import 'package:carousel_pro/carousel_pro.dart';
 
 import './Comp/gridView.dart';
 import 'Comp/horizontal_cat.dart';
 
-void main(){
+void main() {
   runApp(MaterialApp(
     debugShowCheckedModeBanner: false,
     home: FirstPage(),
-
   ));
-
 }
 
 class FirstPage extends StatefulWidget {
@@ -22,140 +19,173 @@ class FirstPage extends StatefulWidget {
 class _FirstPageState extends State<FirstPage> {
   @override
   Widget build(BuildContext context) {
-  Widget imageCar = Container(
-    height:250,
-    child: Carousel(
-      boxFit:BoxFit.cover,
-      images:[
-        AssetImage('assets/1.jpeg'),
-        AssetImage('assets/1.jpeg'),
-        AssetImage('assets/1.jpeg'),
-      
-      ],
-      autoplay: true,
-      animationCurve: Curves.easeIn,
-      animationDuration: Duration(milliseconds: 1000),
-    )
-  );
+    var screenSize = MediaQuery.of(context).size;
+    var width = screenSize.width;
+    var height = screenSize.height;
+
+    Widget imageCar = Container(
+        height: 0.5 * height,
+        child: Carousel(
+          boxFit: BoxFit.cover,
+          images: [
+            AssetImage('assets/car/1.jpg'),
+            AssetImage('assets/car/2.jpg'),
+          //   AssetImage('assets/car/3.jpg'),
+          //   AssetImage('assets/car/4.jpg'),
+          //   AssetImage('assets/car/5.jpg'),
+          //   AssetImage('assets/car/6.jpg'),
+          //   AssetImage('assets/car/7.jpg'),
+          //   AssetImage('assets/car/8.jpg'),
+          ],
+          autoplay: false,
+          animationCurve: Curves.easeIn,
+          animationDuration: Duration(milliseconds: 2000),
+        ));
     return Scaffold(
       appBar: AppBar(
         elevation: 0.0,
         backgroundColor: Colors.black,
-        title:Text('ABC fashion',textAlign: TextAlign.center,),
+        title: Container(
+          child: Text(
+            'La Rosa',
+            textAlign: TextAlign.center,
+            style: TextStyle(
+              fontFamily: 'Italianno',
+              fontSize: 40,
+            ),
+          ),
+          alignment: Alignment.center,
+        ),
         actions: <Widget>[
-          IconButton(icon: Icon(Icons.search), onPressed: (){}),
-          IconButton(icon: Icon(Icons.shopping_cart), onPressed: (){})
+          IconButton(icon: Icon(Icons.search), onPressed: () {}),
+          IconButton(icon: Icon(Icons.shopping_cart), onPressed: () {})
         ],
-
       ),
-
       drawer: Drawer(
-        child: ListView(
-          children: <Widget>[
-            
-            UserAccountsDrawerHeader(
-              decoration: BoxDecoration(
-                color:Colors.black87
-              ),
-              accountName: Text('abc95'), 
-              accountEmail: Text('abc95@ymail.com'),
-              currentAccountPicture: GestureDetector(
+          child: ListView(
+        children: <Widget>[
+          UserAccountsDrawerHeader(
+            decoration: BoxDecoration(color: Colors.black87),
+            accountName: Text('abc95'),
+            accountEmail: Text('abc95@ymail.com'),
+            currentAccountPicture: GestureDetector(
                 child: CircleAvatar(
-                  backgroundColor: Colors.grey,
-                  child: Icon(Icons.person,color: Colors.white,size: 50.0,))
-              ),
+                    backgroundColor: Colors.grey,
+                    child: Icon(
+                      Icons.person,
+                      color: Colors.white,
+                      size: 50.0,
+                    ))),
+          ),
+          InkWell(
+            child: ListTile(
+              onTap: () {},
+              title: Text('Home'),
+              leading: Icon(Icons.home),
+            ),
+          ),
+          InkWell(
+            child: ListTile(
+              onTap: () {},
+              title: Text('Orders'),
+              leading: Icon(Icons.shopping_basket),
+            ),
+          ),
+          InkWell(
+            child: ListTile(
+              onTap: () {},
+              title: Text('Cart'),
+              leading: Icon(Icons.shopping_cart),
+            ),
+          ),
+          InkWell(
+            child: ListTile(
+              onTap: () {},
+              title: Text('Categories'),
+              leading: Icon(Icons.dashboard),
+            ),
+          ),
+          InkWell(
+            child: ListTile(
+              onTap: () {},
+              title: Text('Favourites'),
+              leading: Icon(Icons.favorite),
+            ),
+          ),
+          Divider(),
+          InkWell(
+            child: ListTile(
+              onTap: () {},
+              title: Text('Settings'),
+              leading: Icon(Icons.settings),
+            ),
+          ),
+          InkWell(
+            child: ListTile(
+              onTap: () {},
+              title: Text('Help'),
+              leading: Icon(Icons.help),
+            ),
+          ),
+        ],
+      )),
+
+
+
+      //body
+      body: SingleChildScrollView(
+        child: Column(
+          children: <Widget>[
+            Stack(
               
-              ),
-            
-            InkWell(
-                child: ListTile(
-                onTap: (){},
-                title:Text('Home'),
-                leading:Icon(Icons.home),
-              ),
+              alignment: AlignmentDirectional.bottomEnd,
+              children: <Widget>[
+                imageCar,
+                
+                HorizontalList(),
+              ],
             ),
-
-
-               InkWell(
-                child: ListTile(
-                onTap: (){},
-                title:Text('Orders'),
-                leading:Icon(Icons.shopping_basket),
-              ),
-            ),
-
-               InkWell(
-                child: ListTile(
-                onTap: (){},
-                title:Text('Cart'),
-                leading:Icon(Icons.shopping_cart),
-              ),
-            ),
-
-               InkWell(
-                child: ListTile(
-                onTap: (){},
-                title:Text('Categories'),
-                leading:Icon(Icons.dashboard),
-              ),
-            ),
-
-
-            InkWell(
-                child: ListTile(
-                onTap: (){},
-                title:Text('Favourites'),
-                leading:Icon(Icons.favorite),
-              ),
-            ),
+          
 
             Divider(),
 
-               InkWell(
-                child: ListTile(
-                onTap: (){},
-                title:Text('Settings'),
-                leading:Icon(Icons.settings),
+            SizedBox(height: 1),
+
+            Container(
+              alignment: Alignment.centerLeft,
+              padding: const EdgeInsets.fromLTRB(6, 1, 0, 4),
+              child: Container(
+                height: 0.05 * height,
+                width: 0.3 * width,
+                alignment: Alignment.center,
+                padding: EdgeInsets.all(2.0),
+                decoration: BoxDecoration(
+                    color: Colors.white,
+                    borderRadius: BorderRadius.circular(10.0),
+                    boxShadow: [
+                      BoxShadow(
+                          color: Colors.grey.withOpacity(0.6),
+                          spreadRadius: 2.0,
+                          blurRadius: 5.0)
+                    ]),
+                child: Text(
+                  'Hot deals',
+                  style: TextStyle(
+                    fontSize: 20,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
               ),
             ),
 
-               InkWell(
-                child: ListTile(
-                onTap: (){},
-                title:Text('Help'),
-                leading:Icon(Icons.help),
-              ),
+            Container(
+              //gridview
+              height: 320.0,
+              child: items(), //gridview
             ),
           ],
-        )
+        ),
       ),
-      body: ListView(
-        children: <Widget>[
-          imageCar,                                              //imagecarousel
-          
-          Padding(padding: EdgeInsets.all(10.0,),
-          child: Text('Categories',
-          style: TextStyle(fontSize:20),),
-          ),
-          HorizontalList(),
-
-          Padding(
-            padding: const EdgeInsets.fromLTRB(10.0,20.0,10.0,10.0),
-            child: Text('Hot deals',
-            style: TextStyle(fontSize: 20),),
-          ),
-
-          Container(                         //gridview
-            height: 320.0,
-            child: items(),//gridview
-          ),
-
-        ],
-        
-      ),
-      
-
-
     );
   }
 }
