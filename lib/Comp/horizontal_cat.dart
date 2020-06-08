@@ -5,31 +5,60 @@ import './pages/product_detail.dart';
 class HorizontalList extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+
+    var screenSize = MediaQuery.of(context).size;
+    var width = screenSize.width;
+    var height = screenSize.height;
     return Container(
-      height: 100.0,
+      height: 0.15*height,
       child: ListView(
         scrollDirection: Axis.horizontal,
         children: <Widget>[
           GetListitems(
-            imageLocation:'assets/1.jpeg',
-            imageTitle: 'item_1'
+            imageLocation:'assets/icons/shirt.png',
+           
           ),
           GetListitems(
-            imageLocation:'assets/1.jpeg',
-            imageTitle: 'item_1'
+            imageLocation:'assets/icons/tshirt.png',
+            
           ),
           GetListitems(
-            imageLocation:'assets/1.jpeg',
-            imageTitle: 'item_1'
+            imageLocation:'assets/icons/trouser.png',
+            
           ),
           GetListitems(
-            imageLocation:'assets/1.jpeg',
-            imageTitle: 'item_1'
+            imageLocation:'assets/icons/sweet.png',
+            
           ),
           GetListitems(
-            imageLocation:'assets/1.jpeg',
-            imageTitle: 'item_1'
+            imageLocation:'assets/icons/hoodle.png',
+            
           ),
+          GetListitems(
+            imageLocation:'assets/icons/short.png',
+            
+          ),
+          GetListitems(
+            imageLocation:'assets/icons/sunglass.png',
+            
+          ),
+          GetListitems(
+            imageLocation:'assets/icons/tie.png',
+            
+          ),
+          GetListitems(
+            imageLocation:'assets/icons/belt.png',
+            
+          ),
+          GetListitems(
+            imageLocation:'assets/icons/cap.png',
+            
+          ),
+          GetListitems(
+            imageLocation:'assets/icons/watch.png',
+            
+          ),
+          
 
 
         ],
@@ -41,37 +70,41 @@ class HorizontalList extends StatelessWidget {
 
 class GetListitems extends StatelessWidget {
   final String imageLocation;
-  final String imageTitle;
+  
 
   GetListitems({
     this.imageLocation,
-    this.imageTitle
+    
   });
   @override
   Widget build(BuildContext context) {
-    return Container(
-      height: 10.0,
+
+    var screenSize = MediaQuery.of(context).size;
+    var width = screenSize.width;
+    var height = screenSize.height;
+
+    return InkWell(
       
-      
-      padding:EdgeInsets.all(2.0),
-      child: InkWell(
         onTap: () {},
         child:Container(
-          width: 100.0,
+          
+          
+          margin: EdgeInsets.all(0),
+          width: 120.0,
             child: ListTile(
-            title:Image.asset(imageLocation,width: 100.0,height: 80.0,),
-            subtitle:Container(
               
-              padding:EdgeInsets.all(1.0),
-              alignment:Alignment.topCenter,
-              child: Text(imageTitle),
-            ),
+            title:Container(
+              height: 200,
+              
+              
+              child: Image.asset(imageLocation,)),
+            
 
 
           ),
         ),
         
-      ),
-    );
+      );
+    
   }
 }
