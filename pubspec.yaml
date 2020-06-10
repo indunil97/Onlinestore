@@ -25,6 +25,14 @@ dependencies:
     sdk: flutter
 
   carousel_pro: ^1.0.0
+  firebase_core: ^0.4.5
+  firebase_analytics: ^5.0.15
+
+  cloud_firestore: ^0.13.6
+  google_sign_in: ^4.5.1
+  firebase_auth: ^0.16.1
+
+  rxdart: ^0.24.1
   
 
 
