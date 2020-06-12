@@ -1,10 +1,9 @@
+import 'package:Shopping/services/auth.dart';
 import 'package:flutter/material.dart';
 import 'package:carousel_pro/carousel_pro.dart';
 
-
 import './homepage/gridView.dart';
 import './homepage/horizontal_cat.dart';
-
 
 class FirstPage extends StatefulWidget {
   @override
@@ -12,6 +11,7 @@ class FirstPage extends StatefulWidget {
 }
 
 class _FirstPageState extends State<FirstPage> {
+  final AuthService _auth = AuthService();
   @override
   Widget build(BuildContext context) {
     var screenSize = MediaQuery.of(context).size;
@@ -19,21 +19,17 @@ class _FirstPageState extends State<FirstPage> {
     var height = screenSize.height;
 
     Widget imageCar = Container(
-      
-      
         height: 0.5 * height,
         child: Carousel(
-          
           boxFit: BoxFit.cover,
           images: [
-            
             AssetImage('assets/car/2.jpg'),
             AssetImage('assets/car/3.jpg'),
             AssetImage('assets/car/4.jpg'),
-          //   AssetImage('assets/car/5.jpg'),
-          //   AssetImage('assets/car/6.jpg'),
-          //   AssetImage('assets/car/7.jpg'),
-          //   AssetImage('assets/car/8.jpg'),
+            //   AssetImage('assets/car/5.jpg'),
+            //   AssetImage('assets/car/6.jpg'),
+            //   AssetImage('assets/car/7.jpg'),
+            //   AssetImage('assets/car/8.jpg'),
           ],
           autoplay: false,
           animationCurve: Curves.easeIn,
@@ -56,7 +52,6 @@ class _FirstPageState extends State<FirstPage> {
         ),
         actions: <Widget>[
           IconButton(icon: Icon(Icons.search), onPressed: () {}),
-          
         ],
       ),
       drawer: Drawer(
@@ -120,35 +115,29 @@ class _FirstPageState extends State<FirstPage> {
           ),
           InkWell(
             child: ListTile(
-              onTap: () {},
-              title: Text('Help'),
+              onTap: () async {
+                await _auth.signOut();
+              },
+              title: Text('logOut'),
               leading: Icon(Icons.help),
             ),
           ),
         ],
       )),
 
-
-
       //body
       body: SingleChildScrollView(
         child: Column(
           children: <Widget>[
             Stack(
-              
               alignment: AlignmentDirectional.bottomEnd,
               children: <Widget>[
-              imageCar,
-                
+                imageCar,
                 HorizontalList(),
               ],
             ),
-          
-
             Divider(),
-
             SizedBox(height: 1),
-
             Container(
               alignment: Alignment.centerLeft,
               padding: const EdgeInsets.fromLTRB(6, 1, 0, 4),
@@ -175,7 +164,6 @@ class _FirstPageState extends State<FirstPage> {
                 ),
               ),
             ),
-
             Container(
               //gridview
               height: 320.0,
