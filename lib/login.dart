@@ -276,7 +276,7 @@ class _SignUpState extends State<SignUp> {
                                 Navigator.pop(
                                     context,
                                     MaterialPageRoute(
-                                        builder: (context) => Login()));
+                                        builder: (context) => FirstPage()));
                             }
                           },
                           child: Container(
