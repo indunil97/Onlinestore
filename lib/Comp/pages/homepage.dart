@@ -31,7 +31,7 @@ class _FirstPageState extends State<FirstPage> {
             //   AssetImage('assets/car/7.jpg'),
             //   AssetImage('assets/car/8.jpg'),
           ],
-          autoplay: false,
+          autoplay: true,
           animationCurve: Curves.easeIn,
           animationDuration: Duration(milliseconds: 1000),
         ));
