@@ -1,3 +1,4 @@
+import 'package:Shopping/Exhandling/firebase-auth-helper.dart';
 import 'package:Shopping/login.dart';
 import 'package:Shopping/models/user.dart';
 import 'package:Shopping/services/auth.dart';
@@ -20,7 +21,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return StreamProvider<User>.value(
-      value:AuthService().user,
+      value:FirebaseAuthHelper().user,
       child: MaterialApp(
       debugShowCheckedModeBanner: false,
       home: Wrapper(),
