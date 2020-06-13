@@ -1,3 +1,4 @@
+import 'package:Shopping/Exhandling/firebase-auth-helper.dart';
 import 'package:Shopping/services/auth.dart';
 import 'package:flutter/material.dart';
 import 'package:carousel_pro/carousel_pro.dart';
@@ -19,7 +20,7 @@ class _FirstPageState extends State<FirstPage> {
     var height = screenSize.height;
 
     Widget imageCar = Container(
-        height: 0.5 * height,
+        height: 0.4 * height,
         child: Carousel(
           boxFit: BoxFit.cover,
           images: [
@@ -116,7 +117,8 @@ class _FirstPageState extends State<FirstPage> {
           InkWell(
             child: ListTile(
               onTap: () async {
-                await _auth.signOut();
+                await FirebaseAuthHelper().logout();
+                
               },
               title: Text('logOut'),
               leading: Icon(Icons.help),
@@ -130,6 +132,7 @@ class _FirstPageState extends State<FirstPage> {
         child: Column(
           children: <Widget>[
             Stack(
+              
               alignment: AlignmentDirectional.bottomEnd,
               children: <Widget>[
                 imageCar,
@@ -142,9 +145,9 @@ class _FirstPageState extends State<FirstPage> {
               alignment: Alignment.centerLeft,
               padding: const EdgeInsets.fromLTRB(6, 1, 0, 4),
               child: Container(
-                height: 0.05 * height,
-                width: 0.3 * width,
-                alignment: Alignment.center,
+                height:30,
+                
+                alignment: Alignment.centerLeft,
                 padding: EdgeInsets.all(2.0),
                 // decoration: BoxDecoration(
                 //     color: Colors.white,
