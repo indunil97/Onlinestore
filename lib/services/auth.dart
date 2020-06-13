@@ -1,3 +1,4 @@
+
 import 'package:Shopping/models/user.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 
@@ -52,6 +53,7 @@ Future signInAno() async{
 //signup
 
 Future signUp(String email,String password) async {
+  
   try{
     AuthResult result = await _auth.createUserWithEmailAndPassword(email:email,password:password);
     FirebaseUser user = result.user;
@@ -59,6 +61,7 @@ Future signUp(String email,String password) async {
     return _userFromFirebaseUser(user);
 
   }catch (e){
+    
     print(e.toString());
     return null;
   }
